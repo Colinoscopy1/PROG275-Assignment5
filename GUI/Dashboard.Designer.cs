@@ -1,7 +1,7 @@
 ﻿
 namespace GUI
 {
-    partial class Form1
+    partial class Dashboard
     {
         /// <summary>
         ///  Required designer variable.
@@ -86,15 +86,15 @@ namespace GUI
             this.lblLoggedInAs.TabIndex = 1;
             this.lblLoggedInAs.Text = "Logged in as: ";
             // 
-            // Form1
+            // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1098, 592);
             this.Controls.Add(this.lblLoggedInAs);
             this.Controls.Add(this.tabControl1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "Dashboard";
+            this.Text = "Helpdesk Dashboard";
             this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
