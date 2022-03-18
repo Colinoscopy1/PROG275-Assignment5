@@ -36,7 +36,8 @@ namespace ClassLibrary
             {
                 ret = db.Users.Where(x => x.Id == userID).FirstOrDefault().GetType().ToString();
             }
-
+            //If we want to get rid of the class library. we can split on the . and return last or default
+            //instead of firstordefault
             return ret;
         }
 
