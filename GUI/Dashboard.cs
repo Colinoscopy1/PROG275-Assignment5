@@ -17,5 +17,10 @@ namespace GUI
             InitializeComponent();
         }
 
+        private void btnOpenCreateUserForm_Click(object sender, EventArgs e)
+        {
+            CreateUserForm createUserForm = new CreateUserForm();
+            createUserForm.ShowDialog();
+        }
     }
 }

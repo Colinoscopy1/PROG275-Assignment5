@@ -16,5 +16,11 @@ namespace GUI
         {
             InitializeComponent();
         }
+
+        private void btnCreateUser_Click(object sender, EventArgs e)
+        {
+            //code to create user
+            Close();
+        }
     }
 }

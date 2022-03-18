@@ -34,6 +34,7 @@ namespace GUI
             this.tabMyTickets = new System.Windows.Forms.TabPage();
             this.tabTickets = new System.Windows.Forms.TabPage();
             this.lblLoggedInAs = new System.Windows.Forms.Label();
+            this.btnOpenCreateUserForm = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,11 +87,22 @@ namespace GUI
             this.lblLoggedInAs.TabIndex = 1;
             this.lblLoggedInAs.Text = "Logged in as: ";
             // 
+            // btnOpenCreateUserForm
+            // 
+            this.btnOpenCreateUserForm.Location = new System.Drawing.Point(800, 14);
+            this.btnOpenCreateUserForm.Name = "btnOpenCreateUserForm";
+            this.btnOpenCreateUserForm.Size = new System.Drawing.Size(75, 23);
+            this.btnOpenCreateUserForm.TabIndex = 2;
+            this.btnOpenCreateUserForm.Text = "Create User";
+            this.btnOpenCreateUserForm.UseVisualStyleBackColor = true;
+            this.btnOpenCreateUserForm.Click += new System.EventHandler(this.btnOpenCreateUserForm_Click);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1098, 592);
+            this.Controls.Add(this.btnOpenCreateUserForm);
             this.Controls.Add(this.lblLoggedInAs);
             this.Controls.Add(this.tabControl1);
             this.Name = "Dashboard";
@@ -108,6 +120,7 @@ namespace GUI
         private System.Windows.Forms.TabPage tabMyTickets;
         private System.Windows.Forms.TabPage tabTickets;
         private System.Windows.Forms.Label lblLoggedInAs;
+        private System.Windows.Forms.Button btnOpenCreateUserForm;
     }
 }
 
