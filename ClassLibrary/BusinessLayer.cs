@@ -9,7 +9,7 @@ namespace ClassLibrary
     public  class BusinessLayer
     {
         public static User LoggedInUser = null;
-        //Some Small change
+        
         public static bool Login(string username, string password)
         {
             bool ret = false;
@@ -24,6 +24,19 @@ namespace ClassLibrary
 
                 }
             }
+            return ret;
+        }
+
+        //db.Users.Where(x => x.GetType().ToString() == discrim).FirstOrDefault().GetType().ToString();
+        public static string GetUserDiscriminator(int userID)
+        {
+            string ret = "";
+
+            using (DBContext db = new DBContext())
+            {
+                ret = db.Users.Where(x => x.Id == userID).FirstOrDefault().GetType().ToString();
+            }
+
             return ret;
         }
 
