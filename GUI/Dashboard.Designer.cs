@@ -64,6 +64,23 @@ namespace GUI
             this.lblMyTicketDescription = new System.Windows.Forms.Label();
             this.txtMyTicketDescription = new System.Windows.Forms.TextBox();
             this.lblWelcome = new System.Windows.Forms.Label();
+            this.lstMessages = new System.Windows.Forms.ListBox();
+            this.lstDMs = new System.Windows.Forms.ListBox();
+            this.txtMessageToSend = new System.Windows.Forms.TextBox();
+            this.btnSend = new System.Windows.Forms.Button();
+            this.lblCreateNewTicket = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btnCreateTicket = new System.Windows.Forms.Button();
+            this.lblMessages = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabDashboard.SuspendLayout();
             this.tabMyTickets.SuspendLayout();
@@ -85,6 +102,23 @@ namespace GUI
             // 
             // tabDashboard
             // 
+            this.tabDashboard.Controls.Add(this.lblMessages);
+            this.tabDashboard.Controls.Add(this.btnCreateTicket);
+            this.tabDashboard.Controls.Add(this.label1);
+            this.tabDashboard.Controls.Add(this.comboBox1);
+            this.tabDashboard.Controls.Add(this.label2);
+            this.tabDashboard.Controls.Add(this.comboBox2);
+            this.tabDashboard.Controls.Add(this.label3);
+            this.tabDashboard.Controls.Add(this.comboBox3);
+            this.tabDashboard.Controls.Add(this.label4);
+            this.tabDashboard.Controls.Add(this.comboBox4);
+            this.tabDashboard.Controls.Add(this.label6);
+            this.tabDashboard.Controls.Add(this.textBox2);
+            this.tabDashboard.Controls.Add(this.lblCreateNewTicket);
+            this.tabDashboard.Controls.Add(this.btnSend);
+            this.tabDashboard.Controls.Add(this.txtMessageToSend);
+            this.tabDashboard.Controls.Add(this.lstDMs);
+            this.tabDashboard.Controls.Add(this.lstMessages);
             this.tabDashboard.Controls.Add(this.lblWelcome);
             this.tabDashboard.Location = new System.Drawing.Point(4, 24);
             this.tabDashboard.Name = "tabDashboard";
@@ -412,6 +446,154 @@ namespace GUI
             this.lblWelcome.TabIndex = 0;
             this.lblWelcome.Text = "Welcome, ";
             // 
+            // lstMessages
+            // 
+            this.lstMessages.FormattingEnabled = true;
+            this.lstMessages.ItemHeight = 15;
+            this.lstMessages.Location = new System.Drawing.Point(780, 225);
+            this.lstMessages.Name = "lstMessages";
+            this.lstMessages.Size = new System.Drawing.Size(263, 169);
+            this.lstMessages.TabIndex = 1;
+            // 
+            // lstDMs
+            // 
+            this.lstDMs.FormattingEnabled = true;
+            this.lstDMs.ItemHeight = 15;
+            this.lstDMs.Location = new System.Drawing.Point(627, 225);
+            this.lstDMs.Name = "lstDMs";
+            this.lstDMs.Size = new System.Drawing.Size(147, 199);
+            this.lstDMs.TabIndex = 2;
+            // 
+            // txtMessageToSend
+            // 
+            this.txtMessageToSend.Location = new System.Drawing.Point(780, 401);
+            this.txtMessageToSend.Name = "txtMessageToSend";
+            this.txtMessageToSend.Size = new System.Drawing.Size(182, 23);
+            this.txtMessageToSend.TabIndex = 3;
+            // 
+            // btnSend
+            // 
+            this.btnSend.Location = new System.Drawing.Point(968, 401);
+            this.btnSend.Name = "btnSend";
+            this.btnSend.Size = new System.Drawing.Size(75, 23);
+            this.btnSend.TabIndex = 4;
+            this.btnSend.Text = "Send";
+            this.btnSend.UseVisualStyleBackColor = true;
+            // 
+            // lblCreateNewTicket
+            // 
+            this.lblCreateNewTicket.AutoSize = true;
+            this.lblCreateNewTicket.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCreateNewTicket.Location = new System.Drawing.Point(24, 161);
+            this.lblCreateNewTicket.Name = "lblCreateNewTicket";
+            this.lblCreateNewTicket.Size = new System.Drawing.Size(188, 28);
+            this.lblCreateNewTicket.TabIndex = 5;
+            this.lblCreateNewTicket.Text = "Create a New Ticket ";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(225, 299);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 15);
+            this.label1.TabIndex = 38;
+            this.label1.Text = "Priority";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(225, 317);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(195, 23);
+            this.comboBox1.TabIndex = 37;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(225, 343);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 15);
+            this.label2.TabIndex = 36;
+            this.label2.Text = "Assigned To";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(225, 361);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(195, 23);
+            this.comboBox2.TabIndex = 35;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(225, 255);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(39, 15);
+            this.label3.TabIndex = 34;
+            this.label3.Text = "Status";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(225, 273);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(195, 23);
+            this.comboBox3.TabIndex = 33;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(225, 211);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(31, 15);
+            this.label4.TabIndex = 32;
+            this.label4.Text = "Type";
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(225, 229);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(195, 23);
+            this.comboBox4.TabIndex = 31;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(24, 206);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(67, 15);
+            this.label6.TabIndex = 28;
+            this.label6.Text = "Description";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(24, 224);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(195, 160);
+            this.textBox2.TabIndex = 27;
+            // 
+            // btnCreateTicket
+            // 
+            this.btnCreateTicket.Location = new System.Drawing.Point(24, 390);
+            this.btnCreateTicket.Name = "btnCreateTicket";
+            this.btnCreateTicket.Size = new System.Drawing.Size(396, 34);
+            this.btnCreateTicket.TabIndex = 39;
+            this.btnCreateTicket.Text = "Create Ticket";
+            this.btnCreateTicket.UseVisualStyleBackColor = true;
+            // 
+            // lblMessages
+            // 
+            this.lblMessages.AutoSize = true;
+            this.lblMessages.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblMessages.Location = new System.Drawing.Point(627, 182);
+            this.lblMessages.Name = "lblMessages";
+            this.lblMessages.Size = new System.Drawing.Size(140, 28);
+            this.lblMessages.TabIndex = 40;
+            this.lblMessages.Text = "Your Messages";
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -473,6 +655,23 @@ namespace GUI
         private System.Windows.Forms.TextBox txtMyTicketDescription;
         private System.Windows.Forms.Label lblTicketPriority;
         private System.Windows.Forms.ComboBox cmbTicketPriority;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label lblCreateNewTicket;
+        private System.Windows.Forms.Button btnSend;
+        private System.Windows.Forms.TextBox txtMessageToSend;
+        private System.Windows.Forms.ListBox lstDMs;
+        private System.Windows.Forms.ListBox lstMessages;
+        private System.Windows.Forms.Label lblMessages;
+        private System.Windows.Forms.Button btnCreateTicket;
     }
 }
 
