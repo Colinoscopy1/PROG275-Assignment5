@@ -64,8 +64,19 @@ namespace ClassLibrary
                 db.SaveChanges();
                 ret = true;
             }
+                return ret;
+        }
 
+        public static bool AddNewTicket(Ticket t)
+        {
+            bool ret = false;
 
+            using (DBContext db = new DBContext())
+            {
+                db.Add(t);
+                db.SaveChanges();
+                ret = true;
+            }
                 return ret;
         }
 
