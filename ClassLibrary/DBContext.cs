@@ -15,6 +15,7 @@ namespace ClassLibrary
         public DbSet<Ticket> Tickets { get; set; }
         public DbSet<Technician> Technicians { get; set; }
         public DbSet<Admin> Admins { get; set; }
+        public DbSet<Message> Messages { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
