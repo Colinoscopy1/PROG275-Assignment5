@@ -34,12 +34,12 @@ namespace GUI
             this.lblFirstName = new System.Windows.Forms.Label();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.lblLastName = new System.Windows.Forms.Label();
-            this.txtUsername = new System.Windows.Forms.TextBox();
-            this.lblUsername = new System.Windows.Forms.Label();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.lblPassword = new System.Windows.Forms.Label();
             this.cmbUserType = new System.Windows.Forms.ComboBox();
             this.btnCreateUser = new System.Windows.Forms.Button();
+            this.lblPassword = new System.Windows.Forms.Label();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.lblUsername = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblUserType
@@ -83,38 +83,6 @@ namespace GUI
             this.lblLastName.TabIndex = 4;
             this.lblLastName.Text = "Last Name:";
             // 
-            // txtUsername
-            // 
-            this.txtUsername.Location = new System.Drawing.Point(97, 99);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(121, 23);
-            this.txtUsername.TabIndex = 7;
-            // 
-            // lblUsername
-            // 
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(12, 102);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(63, 15);
-            this.lblUsername.TabIndex = 6;
-            this.lblUsername.Text = "Username:";
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Location = new System.Drawing.Point(97, 128);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(121, 23);
-            this.txtPassword.TabIndex = 9;
-            // 
-            // lblPassword
-            // 
-            this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(12, 131);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(60, 15);
-            this.lblPassword.TabIndex = 8;
-            this.lblPassword.Text = "Password:";
-            // 
             // cmbUserType
             // 
             this.cmbUserType.FormattingEnabled = true;
@@ -136,6 +104,38 @@ namespace GUI
             this.btnCreateUser.Text = "Create User";
             this.btnCreateUser.UseVisualStyleBackColor = true;
             this.btnCreateUser.Click += new System.EventHandler(this.btnCreateUser_Click);
+            // 
+            // lblPassword
+            // 
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Location = new System.Drawing.Point(12, 131);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(60, 15);
+            this.lblPassword.TabIndex = 8;
+            this.lblPassword.Text = "Password:";
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Location = new System.Drawing.Point(97, 99);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(121, 23);
+            this.txtUsername.TabIndex = 7;
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(97, 128);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(121, 23);
+            this.txtPassword.TabIndex = 9;
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Location = new System.Drawing.Point(12, 102);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(63, 15);
+            this.lblUsername.TabIndex = 6;
+            this.lblUsername.Text = "Username:";
             // 
             // CreateUserForm
             // 
@@ -167,11 +167,11 @@ namespace GUI
         private System.Windows.Forms.Label lblFirstName;
         private System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.Label lblLastName;
-        private System.Windows.Forms.TextBox txtUsername;
-        private System.Windows.Forms.Label lblUsername;
-        private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.ComboBox cmbUserType;
         private System.Windows.Forms.Button btnCreateUser;
+        private System.Windows.Forms.Label lblPassword;
+        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Label lblUsername;
     }
 }

@@ -16,5 +16,14 @@ namespace GUI
         {
             InitializeComponent();
         }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            //login code
+
+            Dashboard dashboard = new Dashboard();
+            dashboard.Show();
+            Close();
+        }
     }
 }
