@@ -41,5 +41,35 @@ namespace ClassLibrary
             return ret;
         }
 
+        public static bool AddNewUser(User u)
+        {
+            bool ret = false;
+
+            using (DBContext db = new DBContext())
+            {
+                db.Add(u);
+                db.SaveChanges();
+                ret = true;
+            }
+                return ret;
+        }
+
+        public static bool RemoveUser(User u)
+        {
+            bool ret = false;
+
+            using (DBContext db = new DBContext())
+            {
+                db.Remove(u);
+                db.SaveChanges();
+                ret = true;
+            }
+
+
+                return ret;
+        }
+
+
+
     }
 }
