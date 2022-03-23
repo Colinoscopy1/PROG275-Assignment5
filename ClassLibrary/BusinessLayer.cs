@@ -34,7 +34,7 @@ namespace ClassLibrary
 
             using (DBContext db = new DBContext())
             {
-                ret = db.Users.Where(x => x.Id == userID).FirstOrDefault().GetType().ToString();
+                ret = db.Users.Where(x => x.Id == userID).FirstOrDefault().GetType().ToString().Split(".")[1];
             }
             //If we want to get rid of the class library. we can split on the . and return last or default
             //instead of firstordefault
@@ -78,6 +78,20 @@ namespace ClassLibrary
                 ret = true;
             }
                 return ret;
+        }
+
+        public static bool RemoveTicket(Ticket t)
+        {
+            bool ret = false;
+
+            using (DBContext db = new DBContext())
+            {
+                db.Remove(t);
+                db.SaveChanges();
+                ret = true;
+            }
+
+            return ret;
         }
 
 
