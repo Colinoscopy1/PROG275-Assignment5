@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClassLibrary;
 
 namespace GUI
 {
@@ -21,6 +22,19 @@ namespace GUI
         {
             CreateUserForm createUserForm = new CreateUserForm();
             createUserForm.ShowDialog();
+        }
+
+        private void btnCreateTicket_Click(object sender, EventArgs e)
+        {
+            Ticket newTicket = new Ticket();
+            newTicket.DateCreated = DateTime.Now;
+            newTicket.LastEdited = DateTime.Now;
+            newTicket.Description = txtNewTicketDescription.Text;
+            newTicket.Note = "";
+            newTicket.Type = cmbNewTicketType.Text;
+            newTicket.Status = cmbNewTicketStatus.Text;
+            newTicket.Priority = cmbNewTicketPriority.Text;
+            //newTicket.CreatedBy
         }
     }
 }
