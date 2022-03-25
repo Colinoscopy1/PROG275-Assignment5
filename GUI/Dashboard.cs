@@ -40,8 +40,20 @@ namespace GUI
             newTicket.Priority = cmbNewTicketPriority.Text;
             newTicket.CreatedBy = loggedInUser.Id;
             newTicket.AssignedTo = db.Users.Where(x => x.Username == cmbNewTicketAssignedTo.Text).FirstOrDefault().Id;
-            db.Add(newTicket);
-            db.SaveChanges();
+            try
+            {
+                db.Add(newTicket);
+                db.SaveChanges();
+            }
+            catch
+            {
+                MessageBox.Show("Error creating the ticket. Did you fill in all the fields?");
+            }
+        }
+
+        private void Dashboard_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Parent.Show();
         }
     }
 }

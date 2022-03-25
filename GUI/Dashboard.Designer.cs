@@ -616,6 +616,7 @@ namespace GUI
             this.Controls.Add(this.tabControl1);
             this.Name = "Dashboard";
             this.Text = "Helpdesk Dashboard";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Dashboard_FormClosing);
             this.tabControl1.ResumeLayout(false);
             this.tabDashboard.ResumeLayout(false);
             this.tabDashboard.PerformLayout();
