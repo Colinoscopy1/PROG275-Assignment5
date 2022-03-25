@@ -27,14 +27,14 @@ namespace GUI
             bool success = BusinessLayer.Login(txtUsername.Text, txtPassword.Text);
             if (success)
             {
-                Dashboard dashboard = new Dashboard(BusinessLayer.LoggedInUser);
+                Dashboard dashboard = new Dashboard(BusinessLayer.LoggedInUser, this);
                 dashboard.Show();
             }
             else
             {
                 MessageBox.Show("Failed to Login");
             }
-            //this.Close();
+            this.Hide();
 
         }
     }
