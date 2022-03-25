@@ -206,6 +206,7 @@ namespace GUI
             this.cmbNewTicketStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbNewTicketStatus.FormattingEnabled = true;
             this.cmbNewTicketStatus.Items.AddRange(new object[] {
+            "Pending",
             "Assigned",
             "Accepted",
             "Completed"});
@@ -327,7 +328,7 @@ namespace GUI
             this.tabMyTickets.Controls.Add(this.dgvMyTickets);
             this.tabMyTickets.Location = new System.Drawing.Point(4, 24);
             this.tabMyTickets.Name = "tabMyTickets";
-            this.tabMyTickets.Size = new System.Drawing.Size(1066, 521);
+            this.tabMyTickets.Size = new System.Drawing.Size(1066, 516);
             this.tabMyTickets.TabIndex = 2;
             this.tabMyTickets.Text = "My Tickets";
             this.tabMyTickets.UseVisualStyleBackColor = true;
@@ -343,7 +344,14 @@ namespace GUI
             // 
             // cmbMyTicketPriority
             // 
+            this.cmbMyTicketPriority.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMyTicketPriority.FormattingEnabled = true;
+            this.cmbMyTicketPriority.Items.AddRange(new object[] {
+            "Low",
+            "Medium",
+            "Moderate",
+            "High",
+            "Severe"});
             this.cmbMyTicketPriority.Location = new System.Drawing.Point(865, 384);
             this.cmbMyTicketPriority.Name = "cmbMyTicketPriority";
             this.cmbMyTicketPriority.Size = new System.Drawing.Size(195, 23);
@@ -357,6 +365,7 @@ namespace GUI
             this.btnUpdateMyTicket.TabIndex = 24;
             this.btnUpdateMyTicket.Text = "Update Ticket";
             this.btnUpdateMyTicket.UseVisualStyleBackColor = true;
+            this.btnUpdateMyTicket.Click += new System.EventHandler(this.btnUpdateMyTicket_Click);
             // 
             // txtMyTicketAssignedTo
             // 
@@ -369,6 +378,7 @@ namespace GUI
             // 
             // cmbMyTicketAssignedTo
             // 
+            this.cmbMyTicketAssignedTo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMyTicketAssignedTo.FormattingEnabled = true;
             this.cmbMyTicketAssignedTo.Location = new System.Drawing.Point(865, 428);
             this.cmbMyTicketAssignedTo.Name = "cmbMyTicketAssignedTo";
@@ -386,7 +396,13 @@ namespace GUI
             // 
             // cmbMyTicketStatus
             // 
+            this.cmbMyTicketStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMyTicketStatus.FormattingEnabled = true;
+            this.cmbMyTicketStatus.Items.AddRange(new object[] {
+            "Pending",
+            "Assigned",
+            "Accepted",
+            "Completed"});
             this.cmbMyTicketStatus.Location = new System.Drawing.Point(865, 340);
             this.cmbMyTicketStatus.Name = "cmbMyTicketStatus";
             this.cmbMyTicketStatus.Size = new System.Drawing.Size(195, 23);
@@ -403,7 +419,14 @@ namespace GUI
             // 
             // cmbMyTicketType
             // 
+            this.cmbMyTicketType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMyTicketType.FormattingEnabled = true;
+            this.cmbMyTicketType.Items.AddRange(new object[] {
+            "Networking",
+            "Software",
+            "Updates",
+            "Hardware",
+            "Misc."});
             this.cmbMyTicketType.Location = new System.Drawing.Point(865, 296);
             this.cmbMyTicketType.Name = "cmbMyTicketType";
             this.cmbMyTicketType.Size = new System.Drawing.Size(195, 23);
@@ -440,7 +463,6 @@ namespace GUI
             this.txtMyTicketDescription.Location = new System.Drawing.Point(865, 21);
             this.txtMyTicketDescription.Multiline = true;
             this.txtMyTicketDescription.Name = "txtMyTicketDescription";
-            this.txtMyTicketDescription.ReadOnly = true;
             this.txtMyTicketDescription.Size = new System.Drawing.Size(195, 116);
             this.txtMyTicketDescription.TabIndex = 14;
             // 
@@ -472,7 +494,7 @@ namespace GUI
             this.tabTickets.Location = new System.Drawing.Point(4, 24);
             this.tabTickets.Name = "tabTickets";
             this.tabTickets.Padding = new System.Windows.Forms.Padding(3);
-            this.tabTickets.Size = new System.Drawing.Size(1066, 521);
+            this.tabTickets.Size = new System.Drawing.Size(1066, 516);
             this.tabTickets.TabIndex = 1;
             this.tabTickets.Text = "All Tickets";
             this.tabTickets.UseVisualStyleBackColor = true;
@@ -488,7 +510,14 @@ namespace GUI
             // 
             // cmbTicketPriority
             // 
+            this.cmbTicketPriority.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTicketPriority.FormattingEnabled = true;
+            this.cmbTicketPriority.Items.AddRange(new object[] {
+            "Low",
+            "Medium",
+            "Moderate",
+            "High",
+            "Severe"});
             this.cmbTicketPriority.Location = new System.Drawing.Point(865, 384);
             this.cmbTicketPriority.Name = "cmbTicketPriority";
             this.cmbTicketPriority.Size = new System.Drawing.Size(195, 23);
@@ -502,6 +531,7 @@ namespace GUI
             this.btnUpdateTIcket.TabIndex = 11;
             this.btnUpdateTIcket.Text = "Update Ticket";
             this.btnUpdateTIcket.UseVisualStyleBackColor = true;
+            this.btnUpdateTIcket.Click += new System.EventHandler(this.btnUpdateTIcket_Click);
             // 
             // lblTicketAssignedTo
             // 
@@ -514,6 +544,7 @@ namespace GUI
             // 
             // cmbTicketAssignedTo
             // 
+            this.cmbTicketAssignedTo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTicketAssignedTo.FormattingEnabled = true;
             this.cmbTicketAssignedTo.Location = new System.Drawing.Point(865, 428);
             this.cmbTicketAssignedTo.Name = "cmbTicketAssignedTo";
@@ -531,7 +562,13 @@ namespace GUI
             // 
             // cmbTicketStatus
             // 
+            this.cmbTicketStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTicketStatus.FormattingEnabled = true;
+            this.cmbTicketStatus.Items.AddRange(new object[] {
+            "Pending",
+            "Assigned",
+            "Accepted",
+            "Completed"});
             this.cmbTicketStatus.Location = new System.Drawing.Point(865, 340);
             this.cmbTicketStatus.Name = "cmbTicketStatus";
             this.cmbTicketStatus.Size = new System.Drawing.Size(195, 23);
@@ -548,7 +585,14 @@ namespace GUI
             // 
             // cmbTicketType
             // 
+            this.cmbTicketType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTicketType.FormattingEnabled = true;
+            this.cmbTicketType.Items.AddRange(new object[] {
+            "Networking",
+            "Software",
+            "Updates",
+            "Hardware",
+            "Misc."});
             this.cmbTicketType.Location = new System.Drawing.Point(865, 296);
             this.cmbTicketType.Name = "cmbTicketType";
             this.cmbTicketType.Size = new System.Drawing.Size(195, 23);
@@ -585,7 +629,6 @@ namespace GUI
             this.txtTicketDescription.Location = new System.Drawing.Point(865, 21);
             this.txtTicketDescription.Multiline = true;
             this.txtTicketDescription.Name = "txtTicketDescription";
-            this.txtTicketDescription.ReadOnly = true;
             this.txtTicketDescription.Size = new System.Drawing.Size(195, 116);
             this.txtTicketDescription.TabIndex = 1;
             // 

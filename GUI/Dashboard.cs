@@ -32,20 +32,21 @@ namespace GUI
 
         private void btnCreateTicket_Click(object sender, EventArgs e)
         {
-            Ticket newTicket = new Ticket();
-            newTicket.DateCreated = DateTime.Now;
-            newTicket.LastEdited = DateTime.Now;
-            newTicket.Description = txtNewTicketDescription.Text;
-            newTicket.Note = "";
-            newTicket.Type = cmbNewTicketType.Text;
-            newTicket.Status = cmbNewTicketStatus.Text;
-            newTicket.Priority = cmbNewTicketPriority.Text;
-            newTicket.CreatedBy = loggedInUser.Id;
-            newTicket.AssignedTo = db.Users.Where(x => x.Username == cmbNewTicketAssignedTo.Text).FirstOrDefault().Id;
             try
             {
+                Ticket newTicket = new Ticket();
+                newTicket.DateCreated = DateTime.Now;
+                newTicket.LastEdited = DateTime.Now;
+                newTicket.Description = txtNewTicketDescription.Text;
+                newTicket.Note = "";
+                newTicket.Type = cmbNewTicketType.Text;
+                newTicket.Status = cmbNewTicketStatus.Text;
+                newTicket.Priority = cmbNewTicketPriority.Text;
+                newTicket.CreatedBy = loggedInUser.Id;
+                newTicket.AssignedTo = db.Users.Where(x => x.Username == cmbNewTicketAssignedTo.Text).FirstOrDefault().Id;
                 db.Add(newTicket);
                 db.SaveChanges();
+                MessageBox.Show("Ticket was successfully created!");
             }
             catch
             {
@@ -61,6 +62,7 @@ namespace GUI
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
+            this.Close();
             loginForm.Show();
         }
 
@@ -79,10 +81,28 @@ namespace GUI
             foreach (User user in BusinessLayer.GetAllUsers())
             {
                 cmbNewTicketAssignedTo.Items.Add(user.Username);
+                cmbMyTicketAssignedTo.Items.Add(user.Username);
+                cmbTicketAssignedTo.Items.Add(user.Username);
             }
 
-
             //populate the data grid views
+            dgvAllTickets.DataSource = BusinessLayer.GetStatusTickets("Pending");
+            dgvMyTickets.DataSource = BusinessLayer.GetMyTickets();
+
+        }
+
+        void UpdateTicket()
+        {
+
+        }
+
+        private void btnUpdateMyTicket_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUpdateTIcket_Click(object sender, EventArgs e)
+        {
 
         }
     }
