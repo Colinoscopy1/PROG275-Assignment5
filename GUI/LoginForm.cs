@@ -14,6 +14,7 @@ namespace GUI
     public partial class LoginForm : Form
     {
         bool success = false;
+        
 
         public LoginForm()
         {
@@ -26,9 +27,14 @@ namespace GUI
             bool success = BusinessLayer.Login(txtUsername.Text, txtPassword.Text);
             if (success)
             {
-                Dashboard dashboard = new Dashboard();
+                
+                Dashboard dashboard = new Dashboard(BusinessLayer.LoggedInUser);
                 dashboard.Show();
-                Close();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Failed to Login");
             }
 
         }
