@@ -81,6 +81,7 @@ namespace GUI
             this.dgvAllTickets = new System.Windows.Forms.DataGridView();
             this.lblLoggedInAs = new System.Windows.Forms.Label();
             this.btnOpenCreateUserForm = new System.Windows.Forms.Button();
+            this.lblLoggedInUser = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabDashboard.SuspendLayout();
             this.tabMyTickets.SuspendLayout();
@@ -595,11 +596,21 @@ namespace GUI
             this.btnOpenCreateUserForm.UseVisualStyleBackColor = true;
             this.btnOpenCreateUserForm.Click += new System.EventHandler(this.btnOpenCreateUserForm_Click);
             // 
+            // lblLoggedInUser
+            // 
+            this.lblLoggedInUser.AutoSize = true;
+            this.lblLoggedInUser.Location = new System.Drawing.Point(1015, 18);
+            this.lblLoggedInUser.Name = "lblLoggedInUser";
+            this.lblLoggedInUser.Size = new System.Drawing.Size(38, 15);
+            this.lblLoggedInUser.TabIndex = 3;
+            this.lblLoggedInUser.Text = "label1";
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1098, 592);
+            this.Controls.Add(this.lblLoggedInUser);
             this.Controls.Add(this.btnOpenCreateUserForm);
             this.Controls.Add(this.lblLoggedInAs);
             this.Controls.Add(this.tabControl1);
@@ -673,6 +684,7 @@ namespace GUI
         private System.Windows.Forms.ListBox lstMessages;
         private System.Windows.Forms.Label lblMessages;
         private System.Windows.Forms.Button btnCreateTicket;
+        private System.Windows.Forms.Label lblLoggedInUser;
     }
 }
 

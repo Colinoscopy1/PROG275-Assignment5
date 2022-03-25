@@ -13,6 +13,7 @@ namespace GUI
 {
     public partial class Dashboard : Form
     {
+        DBContext db = new DBContext();
         public Dashboard()
         {
             InitializeComponent();
@@ -34,7 +35,10 @@ namespace GUI
             newTicket.Type = cmbNewTicketType.Text;
             newTicket.Status = cmbNewTicketStatus.Text;
             newTicket.Priority = cmbNewTicketPriority.Text;
-            //newTicket.CreatedBy
+            newTicket.CreatedBy = db.Users.Where(x => x.Username == lblLoggedInUser.Text).FirstOrDefault().Id;
+            newTicket.AssignedTo = db.Users.Where(x => x.Username == lblNewTicketAssignedTo.Text).FirstOrDefault().Id;
+            db.Add(newTicket);
+            db.SaveChanges();
         }
     }
 }
