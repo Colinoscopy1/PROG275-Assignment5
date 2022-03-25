@@ -10,7 +10,7 @@ namespace ClassLibrary
     {
         public static User LoggedInUser = null;
 
-        public List<User> GetAllUsers()
+        public static List<User> GetAllUsers()
         {
             List<User> ret = new List<User>();
 
