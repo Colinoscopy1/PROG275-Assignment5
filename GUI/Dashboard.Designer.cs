@@ -83,6 +83,10 @@ namespace GUI
             this.btnOpenCreateUserForm = new System.Windows.Forms.Button();
             this.lblLoggedInUser = new System.Windows.Forms.Label();
             this.btnLogOut = new System.Windows.Forms.Button();
+            this.lblFilters = new System.Windows.Forms.Label();
+            this.btnShowAll = new System.Windows.Forms.Button();
+            this.btnShowPending = new System.Windows.Forms.Button();
+            this.btnShow = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabDashboard.SuspendLayout();
             this.tabMyTickets.SuspendLayout();
@@ -477,6 +481,10 @@ namespace GUI
             // 
             // tabTickets
             // 
+            this.tabTickets.Controls.Add(this.btnShow);
+            this.tabTickets.Controls.Add(this.btnShowPending);
+            this.tabTickets.Controls.Add(this.btnShowAll);
+            this.tabTickets.Controls.Add(this.lblFilters);
             this.tabTickets.Controls.Add(this.lblTicketPriority);
             this.tabTickets.Controls.Add(this.cmbTicketPriority);
             this.tabTickets.Controls.Add(this.btnUpdateTIcket);
@@ -635,10 +643,10 @@ namespace GUI
             // dgvAllTickets
             // 
             this.dgvAllTickets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAllTickets.Location = new System.Drawing.Point(3, 3);
+            this.dgvAllTickets.Location = new System.Drawing.Point(3, 37);
             this.dgvAllTickets.Name = "dgvAllTickets";
             this.dgvAllTickets.RowTemplate.Height = 25;
-            this.dgvAllTickets.Size = new System.Drawing.Size(856, 510);
+            this.dgvAllTickets.Size = new System.Drawing.Size(856, 476);
             this.dgvAllTickets.TabIndex = 0;
             // 
             // lblLoggedInAs
@@ -678,6 +686,45 @@ namespace GUI
             this.btnLogOut.Text = "Log Out";
             this.btnLogOut.UseVisualStyleBackColor = true;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
+            // 
+            // lblFilters
+            // 
+            this.lblFilters.AutoSize = true;
+            this.lblFilters.Location = new System.Drawing.Point(6, 12);
+            this.lblFilters.Name = "lblFilters";
+            this.lblFilters.Size = new System.Drawing.Size(41, 15);
+            this.lblFilters.TabIndex = 14;
+            this.lblFilters.Text = "Filters:";
+            // 
+            // btnShowAll
+            // 
+            this.btnShowAll.Location = new System.Drawing.Point(53, 8);
+            this.btnShowAll.Name = "btnShowAll";
+            this.btnShowAll.Size = new System.Drawing.Size(115, 23);
+            this.btnShowAll.TabIndex = 15;
+            this.btnShowAll.Text = "Show All";
+            this.btnShowAll.UseVisualStyleBackColor = true;
+            this.btnShowAll.Click += new System.EventHandler(this.btnShowAll_Click);
+            // 
+            // btnShowPending
+            // 
+            this.btnShowPending.Location = new System.Drawing.Point(174, 8);
+            this.btnShowPending.Name = "btnShowPending";
+            this.btnShowPending.Size = new System.Drawing.Size(115, 23);
+            this.btnShowPending.TabIndex = 16;
+            this.btnShowPending.Text = "Show Pending";
+            this.btnShowPending.UseVisualStyleBackColor = true;
+            this.btnShowPending.Click += new System.EventHandler(this.btnShowPending_Click);
+            // 
+            // btnShow
+            // 
+            this.btnShow.Location = new System.Drawing.Point(295, 8);
+            this.btnShow.Name = "btnShow";
+            this.btnShow.Size = new System.Drawing.Size(115, 23);
+            this.btnShow.TabIndex = 17;
+            this.btnShow.Text = "Show Completed";
+            this.btnShow.UseVisualStyleBackColor = true;
+            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
             // 
             // Dashboard
             // 
@@ -763,6 +810,10 @@ namespace GUI
         private System.Windows.Forms.Button btnCreateTicket;
         private System.Windows.Forms.Label lblLoggedInUser;
         private System.Windows.Forms.Button btnLogOut;
+        private System.Windows.Forms.Button btnShow;
+        private System.Windows.Forms.Button btnShowPending;
+        private System.Windows.Forms.Button btnShowAll;
+        private System.Windows.Forms.Label lblFilters;
     }
 }
 

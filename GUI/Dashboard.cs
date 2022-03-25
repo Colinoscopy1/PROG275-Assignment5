@@ -56,7 +56,6 @@ namespace GUI
 
         private void Dashboard_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.Close();
             loginForm.Close();
         }
 
@@ -86,7 +85,7 @@ namespace GUI
             }
 
             //populate the data grid views
-            dgvAllTickets.DataSource = BusinessLayer.GetStatusTickets("Pending");
+            dgvAllTickets.DataSource = BusinessLayer.GetAllTickets();
             dgvMyTickets.DataSource = BusinessLayer.GetMyTickets();
 
         }
@@ -104,6 +103,21 @@ namespace GUI
         private void btnUpdateTIcket_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnShowAll_Click(object sender, EventArgs e)
+        {
+            dgvAllTickets.DataSource = BusinessLayer.GetAllTickets();
+        }
+
+        private void btnShowPending_Click(object sender, EventArgs e)
+        {
+            dgvAllTickets.DataSource = BusinessLayer.GetStatusTickets("Pending");
+        }
+
+        private void btnShow_Click(object sender, EventArgs e)
+        {
+            dgvAllTickets.DataSource = BusinessLayer.GetStatusTickets("Completed");
         }
     }
 }
