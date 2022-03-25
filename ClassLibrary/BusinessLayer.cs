@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,13 +11,58 @@ namespace ClassLibrary
     {
         public static User LoggedInUser = null;
 
+        public static DataTable GetAllTickets()
+        {
+            DataTable ret = new DataTable();
+
+            using (DBContext db = new DBContext())
+            {
+                foreach (Ticket ticket in db.Tickets)
+                {
+                    ret.Rows.Add(db.Tickets);
+                }
+            }
+
+            return ret;
+        }
+
+        public static DataTable GetMyTickets()
+        {
+            DataTable ret = new DataTable();
+
+            using (DBContext db = new DBContext())
+            {
+                foreach (Ticket ticket in db.Tickets)
+                {
+                    ret.Rows.Add(db.Tickets.Where(x => x.CreatedBy == LoggedInUser.Id));
+                }
+            }
+
+            return ret;
+        }
+
+        public static DataTable GetStatusTickets(string status)
+        {
+            DataTable ret = new DataTable();
+
+            using (DBContext db = new DBContext())
+            {
+                foreach (Ticket ticket in db.Tickets)
+                {
+                    ret.Rows.Add(db.Tickets.Where(x => x.Status == status));
+                }
+            }
+
+            return ret;
+        }
+
         public static List<User> GetAllUsers()
         {
             List<User> ret = new List<User>();
 
             using (DBContext db = new DBContext())
             {
-                foreach(User user in db.Users)
+                foreach (User user in db.Users)
                 {
                     ret.Add(user);
                 }
