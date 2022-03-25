@@ -39,7 +39,7 @@ namespace GUI
             newTicket.Status = cmbNewTicketStatus.Text;
             newTicket.Priority = cmbNewTicketPriority.Text;
             newTicket.CreatedBy = loggedInUser.Id;
-            newTicket.AssignedTo = db.Users.Where(x => x.Username == lblNewTicketAssignedTo.Text).FirstOrDefault().Id;
+            newTicket.AssignedTo = db.Users.Where(x => x.Username == cmbNewTicketAssignedTo.Text).FirstOrDefault().Id;
             db.Add(newTicket);
             db.SaveChanges();
         }
