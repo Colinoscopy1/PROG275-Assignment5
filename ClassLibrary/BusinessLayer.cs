@@ -14,12 +14,35 @@ namespace ClassLibrary
         public static DataTable GetAllTickets()
         {
             DataTable ret = new DataTable();
+            ret.Columns.Add("Id");
+            ret.Columns.Add("DateCreated");
+            ret.Columns.Add("LastEdited");
+            ret.Columns.Add("Description");
+            ret.Columns.Add("Note");
+            ret.Columns.Add("Type");
+            ret.Columns.Add("Status");
+            ret.Columns.Add("Priority");
+            ret.Columns.Add("CreatedBy");
+            ret.Columns.Add("AssignedTo");
+            ret.Columns.Add("AcceptedBy");
 
             using (DBContext db = new DBContext())
             {
                 foreach (Ticket ticket in db.Tickets)
                 {
-                    ret.Rows.Add(db.Tickets);
+                    
+                    ret.Rows.Add(ticket.Id,
+                        ticket.DateCreated,
+                        ticket.LastEdited,
+                        ticket.Description,
+                        ticket.Note,
+                        ticket.Type,
+                        ticket.Status,
+                        ticket.Priority,
+                        ticket.CreatedBy,
+                        ticket.AssignedTo,
+                        ticket.AcceptedBy);
+
                 }
             }
 
@@ -29,12 +52,33 @@ namespace ClassLibrary
         public static DataTable GetMyTickets()
         {
             DataTable ret = new DataTable();
+            ret.Columns.Add("Id");
+            ret.Columns.Add("DateCreated");
+            ret.Columns.Add("LastEdited");
+            ret.Columns.Add("Description");
+            ret.Columns.Add("Note");
+            ret.Columns.Add("Type");
+            ret.Columns.Add("Status");
+            ret.Columns.Add("Priority");
+            ret.Columns.Add("CreatedBy");
+            ret.Columns.Add("AssignedTo");
+            ret.Columns.Add("AcceptedBy");
 
             using (DBContext db = new DBContext())
             {
                 foreach (Ticket ticket in db.Tickets)
                 {
-                    ret.Rows.Add(db.Tickets.Where(x => x.CreatedBy == LoggedInUser.Id));
+                    ret.Rows.Add(ticket.Id,
+                        ticket.DateCreated,
+                        ticket.LastEdited,
+                        ticket.Description,
+                        ticket.Note,
+                        ticket.Type,
+                        ticket.Status,
+                        ticket.Priority,
+                        ticket.CreatedBy,
+                        ticket.AssignedTo,
+                        ticket.AcceptedBy);
                 }
             }
 
@@ -44,12 +88,34 @@ namespace ClassLibrary
         public static DataTable GetStatusTickets(string status)
         {
             DataTable ret = new DataTable();
+            ret.Columns.Add("Id");
+            ret.Columns.Add("DateCreated");
+            ret.Columns.Add("LastEdited");
+            ret.Columns.Add("Description");
+            ret.Columns.Add("Note");
+            ret.Columns.Add("Type");
+            ret.Columns.Add("Status");
+            ret.Columns.Add("Priority");
+            ret.Columns.Add("CreatedBy");
+            ret.Columns.Add("AssignedTo");
+            ret.Columns.Add("AcceptedBy");
+
 
             using (DBContext db = new DBContext())
             {
                 foreach (Ticket ticket in db.Tickets)
                 {
-                    ret.Rows.Add(db.Tickets.Where(x => x.Status == status));
+                    ret.Rows.Add(ticket.Id,
+                        ticket.DateCreated,
+                        ticket.LastEdited,
+                        ticket.Description,
+                        ticket.Note,
+                        ticket.Type,
+                        ticket.Status,
+                        ticket.Priority,
+                        ticket.CreatedBy,
+                        ticket.AssignedTo,
+                        ticket.AcceptedBy);
                 }
             }
 
