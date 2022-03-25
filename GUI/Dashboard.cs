@@ -15,11 +15,13 @@ namespace GUI
     {
         DBContext db = new DBContext();
         User loggedInUser;
-        public Dashboard(User loggedInUser)
+        LoginForm loginForm;
+        public Dashboard(User loggedInUser, LoginForm loginForm)
         {
             InitializeComponent();
             this.loggedInUser = loggedInUser;
             lblLoggedInUser.Text = loggedInUser.Username;
+            this.loginForm = loginForm;
         }
 
         private void btnOpenCreateUserForm_Click(object sender, EventArgs e)
@@ -53,7 +55,7 @@ namespace GUI
 
         private void Dashboard_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.Parent.Show();
+            loginForm.Show();
         }
     }
 }
