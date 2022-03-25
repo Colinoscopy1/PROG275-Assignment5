@@ -85,6 +85,7 @@ namespace GUI
             // 
             // cmbUserType
             // 
+            this.cmbUserType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbUserType.FormattingEnabled = true;
             this.cmbUserType.Items.AddRange(new object[] {
             "User",
