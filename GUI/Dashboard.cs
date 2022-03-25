@@ -55,7 +55,35 @@ namespace GUI
 
         private void Dashboard_FormClosing(object sender, FormClosingEventArgs e)
         {
+            this.Close();
+            loginForm.Close();
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
             loginForm.Show();
+        }
+
+        private void Dashboard_Load(object sender, EventArgs e)
+        {
+            //changing form based on user access, hide create user button if they're not admin and hide all tickets if they're just a user
+            string currentUserType = BusinessLayer.GetUserDiscriminator(loggedInUser.Id);
+
+            if (currentUserType != "Admin")
+                btnOpenCreateUserForm.Enabled = false;
+
+            if (currentUserType == "User")
+                tabTickets.Hide();
+
+            //populate the combobox with users
+            foreach (User user in BusinessLayer.GetAllUsers())
+            {
+                cmbNewTicketAssignedTo.Items.Add(user.Username);
+            }
+
+
+            //populate the data grid views
+
         }
     }
 }

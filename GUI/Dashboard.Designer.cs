@@ -82,6 +82,7 @@ namespace GUI
             this.lblLoggedInAs = new System.Windows.Forms.Label();
             this.btnOpenCreateUserForm = new System.Windows.Forms.Button();
             this.lblLoggedInUser = new System.Windows.Forms.Label();
+            this.btnLogOut = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabDashboard.SuspendLayout();
             this.tabMyTickets.SuspendLayout();
@@ -160,7 +161,14 @@ namespace GUI
             // 
             // cmbNewTicketPriority
             // 
+            this.cmbNewTicketPriority.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbNewTicketPriority.FormattingEnabled = true;
+            this.cmbNewTicketPriority.Items.AddRange(new object[] {
+            "Low",
+            "Medium",
+            "Moderate",
+            "High",
+            "Severe"});
             this.cmbNewTicketPriority.Location = new System.Drawing.Point(225, 317);
             this.cmbNewTicketPriority.Name = "cmbNewTicketPriority";
             this.cmbNewTicketPriority.Size = new System.Drawing.Size(195, 23);
@@ -177,6 +185,7 @@ namespace GUI
             // 
             // cmbNewTicketAssignedTo
             // 
+            this.cmbNewTicketAssignedTo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbNewTicketAssignedTo.FormattingEnabled = true;
             this.cmbNewTicketAssignedTo.Location = new System.Drawing.Point(225, 361);
             this.cmbNewTicketAssignedTo.Name = "cmbNewTicketAssignedTo";
@@ -194,7 +203,12 @@ namespace GUI
             // 
             // cmbNewTicketStatus
             // 
+            this.cmbNewTicketStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbNewTicketStatus.FormattingEnabled = true;
+            this.cmbNewTicketStatus.Items.AddRange(new object[] {
+            "Assigned",
+            "Accepted",
+            "Completed"});
             this.cmbNewTicketStatus.Location = new System.Drawing.Point(225, 273);
             this.cmbNewTicketStatus.Name = "cmbNewTicketStatus";
             this.cmbNewTicketStatus.Size = new System.Drawing.Size(195, 23);
@@ -211,7 +225,14 @@ namespace GUI
             // 
             // cmbNewTicketType
             // 
+            this.cmbNewTicketType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbNewTicketType.FormattingEnabled = true;
+            this.cmbNewTicketType.Items.AddRange(new object[] {
+            "Networking",
+            "Software",
+            "Updates",
+            "Hardware",
+            "Misc."});
             this.cmbNewTicketType.Location = new System.Drawing.Point(225, 229);
             this.cmbNewTicketType.Name = "cmbNewTicketType";
             this.cmbNewTicketType.Size = new System.Drawing.Size(195, 23);
@@ -306,7 +327,7 @@ namespace GUI
             this.tabMyTickets.Controls.Add(this.dgvMyTickets);
             this.tabMyTickets.Location = new System.Drawing.Point(4, 24);
             this.tabMyTickets.Name = "tabMyTickets";
-            this.tabMyTickets.Size = new System.Drawing.Size(1066, 516);
+            this.tabMyTickets.Size = new System.Drawing.Size(1066, 521);
             this.tabMyTickets.TabIndex = 2;
             this.tabMyTickets.Text = "My Tickets";
             this.tabMyTickets.UseVisualStyleBackColor = true;
@@ -451,7 +472,7 @@ namespace GUI
             this.tabTickets.Location = new System.Drawing.Point(4, 24);
             this.tabTickets.Name = "tabTickets";
             this.tabTickets.Padding = new System.Windows.Forms.Padding(3);
-            this.tabTickets.Size = new System.Drawing.Size(1066, 516);
+            this.tabTickets.Size = new System.Drawing.Size(1066, 521);
             this.tabTickets.TabIndex = 1;
             this.tabTickets.Text = "All Tickets";
             this.tabTickets.UseVisualStyleBackColor = true;
@@ -580,7 +601,7 @@ namespace GUI
             // lblLoggedInAs
             // 
             this.lblLoggedInAs.AutoSize = true;
-            this.lblLoggedInAs.Location = new System.Drawing.Point(929, 18);
+            this.lblLoggedInAs.Location = new System.Drawing.Point(928, 9);
             this.lblLoggedInAs.Name = "lblLoggedInAs";
             this.lblLoggedInAs.Size = new System.Drawing.Size(80, 15);
             this.lblLoggedInAs.TabIndex = 1;
@@ -588,7 +609,7 @@ namespace GUI
             // 
             // btnOpenCreateUserForm
             // 
-            this.btnOpenCreateUserForm.Location = new System.Drawing.Point(800, 14);
+            this.btnOpenCreateUserForm.Location = new System.Drawing.Point(923, 31);
             this.btnOpenCreateUserForm.Name = "btnOpenCreateUserForm";
             this.btnOpenCreateUserForm.Size = new System.Drawing.Size(75, 23);
             this.btnOpenCreateUserForm.TabIndex = 2;
@@ -599,17 +620,28 @@ namespace GUI
             // lblLoggedInUser
             // 
             this.lblLoggedInUser.AutoSize = true;
-            this.lblLoggedInUser.Location = new System.Drawing.Point(1015, 18);
+            this.lblLoggedInUser.Location = new System.Drawing.Point(1005, 9);
             this.lblLoggedInUser.Name = "lblLoggedInUser";
             this.lblLoggedInUser.Size = new System.Drawing.Size(38, 15);
             this.lblLoggedInUser.TabIndex = 3;
             this.lblLoggedInUser.Text = "label1";
+            // 
+            // btnLogOut
+            // 
+            this.btnLogOut.Location = new System.Drawing.Point(1004, 31);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(75, 23);
+            this.btnLogOut.TabIndex = 4;
+            this.btnLogOut.Text = "Log Out";
+            this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1098, 592);
+            this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.lblLoggedInUser);
             this.Controls.Add(this.btnOpenCreateUserForm);
             this.Controls.Add(this.lblLoggedInAs);
@@ -617,6 +649,7 @@ namespace GUI
             this.Name = "Dashboard";
             this.Text = "Helpdesk Dashboard";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Dashboard_FormClosing);
+            this.Load += new System.EventHandler(this.Dashboard_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabDashboard.ResumeLayout(false);
             this.tabDashboard.PerformLayout();
@@ -686,6 +719,7 @@ namespace GUI
         private System.Windows.Forms.Label lblMessages;
         private System.Windows.Forms.Button btnCreateTicket;
         private System.Windows.Forms.Label lblLoggedInUser;
+        private System.Windows.Forms.Button btnLogOut;
     }
 }
 
