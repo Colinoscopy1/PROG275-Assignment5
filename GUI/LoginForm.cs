@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClassLibrary;
 
 namespace GUI
 {
     public partial class LoginForm : Form
     {
+        bool success = false;
+
         public LoginForm()
         {
             InitializeComponent();
@@ -20,10 +23,14 @@ namespace GUI
         private void btnLogin_Click(object sender, EventArgs e)
         {
             //login code
+            bool success = BusinessLayer.Login(txtUsername.Text, txtPassword.Text);
+            if (success)
+            {
+                Dashboard dashboard = new Dashboard();
+                dashboard.Show();
+                Close();
+            }
 
-            Dashboard dashboard = new Dashboard();
-            dashboard.Show();
-            Close();
         }
     }
 }

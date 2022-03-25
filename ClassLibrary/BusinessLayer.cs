@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary
 {
-    public  class BusinessLayer
+    public class BusinessLayer
     {
         public static User LoggedInUser = null;
-        
+
         public static bool Login(string username, string password)
         {
             bool ret = false;
@@ -51,7 +51,7 @@ namespace ClassLibrary
                 db.SaveChanges();
                 ret = true;
             }
-                return ret;
+            return ret;
         }
 
         public static bool RemoveUser(User u)
@@ -64,7 +64,7 @@ namespace ClassLibrary
                 db.SaveChanges();
                 ret = true;
             }
-                return ret;
+            return ret;
         }
 
         public static bool AddNewTicket(Ticket t)
@@ -77,7 +77,7 @@ namespace ClassLibrary
                 db.SaveChanges();
                 ret = true;
             }
-                return ret;
+            return ret;
         }
 
         public static bool RemoveTicket(Ticket t)
@@ -91,6 +91,36 @@ namespace ClassLibrary
                 ret = true;
             }
 
+            return ret;
+        }
+
+        public static List<User> GetAllUsersToMessage()
+        {
+            List<User> ret;
+
+            using (DBContext db = new DBContext())
+            {
+                ret = db.Users.Where(x => x.Username != LoggedInUser.Username).ToList();
+            }
+
+            return ret;
+        }
+
+        public static bool SendMessage(User recipient, string message)
+        {
+            bool ret = false;
+
+            using (DBContext db = new DBContext())
+            {
+                Message msg = new Message();
+                msg.Content = message;
+                msg.Sender = LoggedInUser;
+                msg.Recipient = recipient;
+                msg.MessageDate = DateTime.Now;
+                db.Add(msg);
+                db.SaveChanges();
+                ret = true;
+            }
             return ret;
         }
 
