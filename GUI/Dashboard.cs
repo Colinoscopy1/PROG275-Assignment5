@@ -92,26 +92,41 @@ namespace GUI
 
         private void btnUpdateMyTicket_Click(object sender, EventArgs e)
         {
-            int selectedTicketId = Convert.ToInt32(dgvMyTickets.Rows[dgvMyTickets.CurrentRow.Index].Cells[0].Value);
-            var ticketToEdit = db.Tickets.SingleOrDefault(x => x.Id == selectedTicketId);
-            ticketToEdit.Description = txtMyTicketDescription.Text;
-            ticketToEdit.Note = txtMyTicketNotes.Text;
-            ticketToEdit.Type = cmbMyTicketType.Text;
-            ticketToEdit.Status = cmbMyTicketStatus.Text;
-            ticketToEdit.AssignedTo = db.Users.SingleOrDefault(x => x.Username == cmbMyTicketAssignedTo.Text).Id;
-            db.SaveChanges();
-        }
+            try
+            {
+                int selectedTicketId = Convert.ToInt32(dgvMyTickets.Rows[dgvMyTickets.CurrentRow.Index].Cells[0].Value);
+                var ticketToEdit = db.Tickets.SingleOrDefault(x => x.Id == selectedTicketId);
+                ticketToEdit.Description = txtMyTicketDescription.Text;
+                ticketToEdit.Note = txtMyTicketNotes.Text;
+                ticketToEdit.Type = cmbMyTicketType.Text;
+                ticketToEdit.Status = cmbMyTicketStatus.Text;
+                ticketToEdit.AssignedTo = db.Users.SingleOrDefault(x => x.Username == cmbMyTicketAssignedTo.Text).Id;
+                db.SaveChanges();
+                MessageBox.Show("Ticket successfully updated.");
+            }
+            catch
+            {
+                MessageBox.Show("Error updating ticket.");
+            }
+}
 
         private void btnUpdateTIcket_Click(object sender, EventArgs e)
         {
-            int selectedTicketId = Convert.ToInt32(dgvAllTickets.Rows[dgvAllTickets.CurrentRow.Index].Cells[0].Value);
-            var ticketToEdit = db.Tickets.SingleOrDefault(x => x.Id == selectedTicketId);
-            ticketToEdit.Description = txtTicketDescription.Text;
-            ticketToEdit.Note = txtTicketNotes.Text;
-            ticketToEdit.Type = cmbTicketType.Text;
-            ticketToEdit.Status = cmbTicketStatus.Text;
-            ticketToEdit.AssignedTo = db.Users.SingleOrDefault(x => x.Username == cmbTicketAssignedTo.Text).Id;
-            db.SaveChanges();
+            try
+            {
+                int selectedTicketId = Convert.ToInt32(dgvAllTickets.Rows[dgvAllTickets.CurrentRow.Index].Cells[0].Value);
+                var ticketToEdit = db.Tickets.SingleOrDefault(x => x.Id == selectedTicketId);
+                ticketToEdit.Description = txtTicketDescription.Text;
+                ticketToEdit.Note = txtTicketNotes.Text;
+                ticketToEdit.Type = cmbTicketType.Text;
+                ticketToEdit.Status = cmbTicketStatus.Text;
+                ticketToEdit.AssignedTo = db.Users.SingleOrDefault(x => x.Username == cmbTicketAssignedTo.Text).Id;
+                db.SaveChanges();
+                MessageBox.Show("Ticket successfully updated.");
+            } catch
+            {
+                MessageBox.Show("Error updating ticket.");
+            }
         }
 
         private void btnShowAll_Click(object sender, EventArgs e)
