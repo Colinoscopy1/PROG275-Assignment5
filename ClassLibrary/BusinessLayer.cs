@@ -68,17 +68,20 @@ namespace ClassLibrary
             {
                 foreach (Ticket ticket in db.Tickets)
                 {
-                    ret.Rows.Add(ticket.Id,
-                        ticket.DateCreated,
-                        ticket.LastEdited,
-                        ticket.Description,
-                        ticket.Note,
-                        ticket.Type,
-                        ticket.Status,
-                        ticket.Priority,
-                        ticket.CreatedBy,
-                        ticket.AssignedTo,
-                        ticket.AcceptedBy);
+                    if (ticket.AssignedTo == LoggedInUser.Id)
+                    {
+                        ret.Rows.Add(ticket.Id,
+                            ticket.DateCreated,
+                            ticket.LastEdited,
+                            ticket.Description,
+                            ticket.Note,
+                            ticket.Type,
+                            ticket.Status,
+                            ticket.Priority,
+                            ticket.CreatedBy,
+                            ticket.AssignedTo,
+                            ticket.AcceptedBy);
+                    }
                 }
             }
 
@@ -105,17 +108,20 @@ namespace ClassLibrary
             {
                 foreach (Ticket ticket in db.Tickets)
                 {
-                    ret.Rows.Add(ticket.Id,
-                        ticket.DateCreated,
-                        ticket.LastEdited,
-                        ticket.Description,
-                        ticket.Note,
-                        ticket.Type,
-                        ticket.Status,
-                        ticket.Priority,
-                        ticket.CreatedBy,
-                        ticket.AssignedTo,
-                        ticket.AcceptedBy);
+                    if (ticket.Status == status)
+                    {
+                        ret.Rows.Add(ticket.Id,
+                            ticket.DateCreated,
+                            ticket.LastEdited,
+                            ticket.Description,
+                            ticket.Note,
+                            ticket.Type,
+                            ticket.Status,
+                            ticket.Priority,
+                            ticket.CreatedBy,
+                            ticket.AssignedTo,
+                            ticket.AcceptedBy);
+                    }
                 }
             }
 
