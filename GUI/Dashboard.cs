@@ -107,16 +107,19 @@ namespace GUI
 
         private void btnShowAll_Click(object sender, EventArgs e)
         {
+            dgvAllTickets.DataSource = null;
             dgvAllTickets.DataSource = BusinessLayer.GetAllTickets();
         }
 
         private void btnShowPending_Click(object sender, EventArgs e)
         {
+            dgvAllTickets.DataSource = null;
             dgvAllTickets.DataSource = BusinessLayer.GetStatusTickets("Pending");
         }
 
         private void btnShow_Click(object sender, EventArgs e)
         {
+            dgvAllTickets.DataSource = null;
             dgvAllTickets.DataSource = BusinessLayer.GetStatusTickets("Completed");
         }
     }
