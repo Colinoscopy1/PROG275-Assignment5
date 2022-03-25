@@ -10,6 +10,21 @@ namespace ClassLibrary
     {
         public static User LoggedInUser = null;
 
+        public List<User> GetAllUsers()
+        {
+            List<User> ret = new List<User>();
+
+            using (DBContext db = new DBContext())
+            {
+                foreach(User user in db.Users)
+                {
+                    ret.Add(user);
+                }
+            }
+
+            return ret;
+        }
+
         public static bool Login(string username, string password)
         {
             bool ret = false;
