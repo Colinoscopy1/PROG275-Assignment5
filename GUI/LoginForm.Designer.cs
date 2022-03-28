@@ -53,6 +53,7 @@ namespace GUI
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(121, 23);
             this.txtPassword.TabIndex = 15;
+            this.txtPassword.Text = "P@ssword!";
             // 
             // lblPassword
             // 
@@ -69,6 +70,7 @@ namespace GUI
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(121, 23);
             this.txtUsername.TabIndex = 13;
+            this.txtUsername.Text = "Admin";
             // 
             // lblUsername
             // 

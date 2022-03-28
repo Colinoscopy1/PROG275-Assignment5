@@ -68,6 +68,8 @@ namespace GUI
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
+           
+
             lblWelcome.Text = $"Welcome, {loggedInUser.Username}";
             //changing form based on user access, hide create user button if they're not admin and hide all tickets if they're just a user
             string currentUserType = BusinessLayer.GetUserDiscriminator(loggedInUser.Id);
@@ -92,6 +94,7 @@ namespace GUI
 
             //populate dm list
             lstDMs.DataSource = BusinessLayer.GetAllUsersToMessage();
+            lstDMs.ValueMember = "Username";
 
         }
 
@@ -198,16 +201,23 @@ namespace GUI
             {
                 User recipient = (User)lstDMs.SelectedItem;
                 BusinessLayer.SendMessage(recipient, txtMessageToSend.Text);
+                RefreshDM();
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("There was an error while sending the message.");
+                MessageBox.Show(ex.Message);
             }
         }
 
         void RefreshDM()
         {
-            lstMessages.DataSource = BusinessLayer.get
+            lstMessages.DataSource = BusinessLayer.GetMessages(loggedInUser, (User)lstDMs.SelectedItem);
+            lstMessages.ValueMember = "Content";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            RefreshDM();
         }
     }
 }

@@ -265,20 +265,24 @@ namespace ClassLibrary
                 msg.Sender = LoggedInUser;
                 msg.Recipient = recipient;
                 msg.MessageDate = DateTime.Now;
-                db.Add(msg);
+                db.Messages.Add(msg);
                 db.SaveChanges();
                 ret = true;
             }
             return ret;
         }
 
-        public List<string> GetMessages(User sender, User recipient)
+        public static List<Message> GetMessages(User sender, User recipient)
         {
-            List<string> messages = new List<string>();
+            List<Message> messages = null;
 
             using (DBContext db = new DBContext())
             {
-                messages = (List<string>)db.Messages.Where(x => x.Sender.Id == sender.Id && x.Recipient.Id == recipient.Id);
+                messages = db.Messages.Where(x => 
+                (x.Sender.Username == sender.Username && x.Recipient.Username == recipient.Username)
+                ||
+                (x.Recipient.Username == LoggedInUser.Username && x.Sender.Username == recipient.Username))
+                    .ToList();
             }
 
             return messages;

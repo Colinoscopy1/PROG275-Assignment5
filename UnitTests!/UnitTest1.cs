@@ -23,7 +23,7 @@ namespace UnitTests_
             DBContext db = new DBContext();
             BusinessLayer bl = new BusinessLayer();
 
-            Assert.AreEqual("Colin", bl.GetNameByID(8));
+            Assert.AreEqual("Colin", BusinessLayer.GetNameByID(8));
         }
 
         [TestMethod]
