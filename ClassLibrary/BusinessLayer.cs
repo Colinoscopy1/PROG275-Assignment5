@@ -272,6 +272,18 @@ namespace ClassLibrary
             return ret;
         }
 
+        public List<string> GetMessages(User sender, User recipient)
+        {
+            List<string> messages = new List<string>();
+
+            using (DBContext db = new DBContext())
+            {
+                messages = (List<string>)db.Messages.Where(x => x.Sender.Id == sender.Id && x.Recipient.Id == recipient.Id);
+            }
+
+            return messages;
+        }
+
 
 
     }
