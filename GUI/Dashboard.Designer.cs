@@ -65,6 +65,10 @@ namespace GUI
             this.txtMyTicketDescription = new System.Windows.Forms.TextBox();
             this.dgvMyTickets = new System.Windows.Forms.DataGridView();
             this.tabTickets = new System.Windows.Forms.TabPage();
+            this.btnShow = new System.Windows.Forms.Button();
+            this.btnShowPending = new System.Windows.Forms.Button();
+            this.btnShowAll = new System.Windows.Forms.Button();
+            this.lblFilters = new System.Windows.Forms.Label();
             this.lblTicketPriority = new System.Windows.Forms.Label();
             this.cmbTicketPriority = new System.Windows.Forms.ComboBox();
             this.btnUpdateTIcket = new System.Windows.Forms.Button();
@@ -83,10 +87,6 @@ namespace GUI
             this.btnOpenCreateUserForm = new System.Windows.Forms.Button();
             this.lblLoggedInUser = new System.Windows.Forms.Label();
             this.btnLogOut = new System.Windows.Forms.Button();
-            this.lblFilters = new System.Windows.Forms.Label();
-            this.btnShowAll = new System.Windows.Forms.Button();
-            this.btnShowPending = new System.Windows.Forms.Button();
-            this.btnShow = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabDashboard.SuspendLayout();
             this.tabMyTickets.SuspendLayout();
@@ -278,6 +278,7 @@ namespace GUI
             this.btnSend.TabIndex = 4;
             this.btnSend.Text = "Send";
             this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
             // txtMessageToSend
             // 
@@ -478,6 +479,7 @@ namespace GUI
             this.dgvMyTickets.RowTemplate.Height = 25;
             this.dgvMyTickets.Size = new System.Drawing.Size(856, 510);
             this.dgvMyTickets.TabIndex = 0;
+            this.dgvMyTickets.SelectionChanged += new System.EventHandler(this.dgvMyTickets_SelectionChanged);
             // 
             // tabTickets
             // 
@@ -506,6 +508,45 @@ namespace GUI
             this.tabTickets.TabIndex = 1;
             this.tabTickets.Text = "All Tickets";
             this.tabTickets.UseVisualStyleBackColor = true;
+            // 
+            // btnShow
+            // 
+            this.btnShow.Location = new System.Drawing.Point(295, 8);
+            this.btnShow.Name = "btnShow";
+            this.btnShow.Size = new System.Drawing.Size(115, 23);
+            this.btnShow.TabIndex = 17;
+            this.btnShow.Text = "Show Completed";
+            this.btnShow.UseVisualStyleBackColor = true;
+            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
+            // 
+            // btnShowPending
+            // 
+            this.btnShowPending.Location = new System.Drawing.Point(174, 8);
+            this.btnShowPending.Name = "btnShowPending";
+            this.btnShowPending.Size = new System.Drawing.Size(115, 23);
+            this.btnShowPending.TabIndex = 16;
+            this.btnShowPending.Text = "Show Pending";
+            this.btnShowPending.UseVisualStyleBackColor = true;
+            this.btnShowPending.Click += new System.EventHandler(this.btnShowPending_Click);
+            // 
+            // btnShowAll
+            // 
+            this.btnShowAll.Location = new System.Drawing.Point(53, 8);
+            this.btnShowAll.Name = "btnShowAll";
+            this.btnShowAll.Size = new System.Drawing.Size(115, 23);
+            this.btnShowAll.TabIndex = 15;
+            this.btnShowAll.Text = "Show All";
+            this.btnShowAll.UseVisualStyleBackColor = true;
+            this.btnShowAll.Click += new System.EventHandler(this.btnShowAll_Click);
+            // 
+            // lblFilters
+            // 
+            this.lblFilters.AutoSize = true;
+            this.lblFilters.Location = new System.Drawing.Point(6, 12);
+            this.lblFilters.Name = "lblFilters";
+            this.lblFilters.Size = new System.Drawing.Size(41, 15);
+            this.lblFilters.TabIndex = 14;
+            this.lblFilters.Text = "Filters:";
             // 
             // lblTicketPriority
             // 
@@ -648,6 +689,7 @@ namespace GUI
             this.dgvAllTickets.RowTemplate.Height = 25;
             this.dgvAllTickets.Size = new System.Drawing.Size(856, 476);
             this.dgvAllTickets.TabIndex = 0;
+            this.dgvAllTickets.SelectionChanged += new System.EventHandler(this.dgvAllTickets_SelectionChanged);
             // 
             // lblLoggedInAs
             // 
@@ -686,45 +728,6 @@ namespace GUI
             this.btnLogOut.Text = "Log Out";
             this.btnLogOut.UseVisualStyleBackColor = true;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
-            // 
-            // lblFilters
-            // 
-            this.lblFilters.AutoSize = true;
-            this.lblFilters.Location = new System.Drawing.Point(6, 12);
-            this.lblFilters.Name = "lblFilters";
-            this.lblFilters.Size = new System.Drawing.Size(41, 15);
-            this.lblFilters.TabIndex = 14;
-            this.lblFilters.Text = "Filters:";
-            // 
-            // btnShowAll
-            // 
-            this.btnShowAll.Location = new System.Drawing.Point(53, 8);
-            this.btnShowAll.Name = "btnShowAll";
-            this.btnShowAll.Size = new System.Drawing.Size(115, 23);
-            this.btnShowAll.TabIndex = 15;
-            this.btnShowAll.Text = "Show All";
-            this.btnShowAll.UseVisualStyleBackColor = true;
-            this.btnShowAll.Click += new System.EventHandler(this.btnShowAll_Click);
-            // 
-            // btnShowPending
-            // 
-            this.btnShowPending.Location = new System.Drawing.Point(174, 8);
-            this.btnShowPending.Name = "btnShowPending";
-            this.btnShowPending.Size = new System.Drawing.Size(115, 23);
-            this.btnShowPending.TabIndex = 16;
-            this.btnShowPending.Text = "Show Pending";
-            this.btnShowPending.UseVisualStyleBackColor = true;
-            this.btnShowPending.Click += new System.EventHandler(this.btnShowPending_Click);
-            // 
-            // btnShow
-            // 
-            this.btnShow.Location = new System.Drawing.Point(295, 8);
-            this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(115, 23);
-            this.btnShow.TabIndex = 17;
-            this.btnShow.Text = "Show Completed";
-            this.btnShow.UseVisualStyleBackColor = true;
-            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
             // 
             // Dashboard
             // 

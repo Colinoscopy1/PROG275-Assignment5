@@ -67,6 +67,7 @@ namespace GUI
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
+            lblWelcome.Text = $"Welcome, {loggedInUser.Username}";
             //changing form based on user access, hide create user button if they're not admin and hide all tickets if they're just a user
             string currentUserType = BusinessLayer.GetUserDiscriminator(loggedInUser.Id);
 
@@ -145,6 +146,31 @@ namespace GUI
         {
             dgvAllTickets.DataSource = null;
             dgvAllTickets.DataSource = BusinessLayer.GetStatusTickets("Completed");
+        }
+
+        private void dgvMyTickets_SelectionChanged(object sender, EventArgs e)
+        {
+            txtMyTicketDescription.Text = dgvMyTickets.Rows[dgvMyTickets.CurrentRow.Index].Cells[8].Value.ToString();
+            txtMyTicketNotes.Text = dgvMyTickets.Rows[dgvMyTickets.CurrentRow.Index].Cells[4].Value.ToString();
+            cmbMyTicketType.Text = dgvMyTickets.Rows[dgvMyTickets.CurrentRow.Index].Cells[5].Value.ToString();
+            cmbMyTicketStatus.Text = dgvMyTickets.Rows[dgvMyTickets.CurrentRow.Index].Cells[6].Value.ToString();
+            cmbMyTicketPriority.Text = dgvMyTickets.Rows[dgvMyTickets.CurrentRow.Index].Cells[7].Value.ToString();
+            cmbMyTicketAssignedTo.Text = dgvMyTickets.Rows[dgvMyTickets.CurrentRow.Index].Cells[9].Value.ToString();
+        }
+
+        private void dgvAllTickets_SelectionChanged(object sender, EventArgs e)
+        {
+            txtTicketDescription.Text = dgvAllTickets.Rows[dgvAllTickets.CurrentRow.Index].Cells[8].Value.ToString();
+            txtTicketNotes.Text = dgvAllTickets.Rows[dgvAllTickets.CurrentRow.Index].Cells[4].Value.ToString();
+            cmbTicketType.Text = dgvAllTickets.Rows[dgvAllTickets.CurrentRow.Index].Cells[5].Value.ToString();
+            cmbTicketStatus.Text = dgvAllTickets.Rows[dgvAllTickets.CurrentRow.Index].Cells[6].Value.ToString();
+            cmbTicketPriority.Text = dgvAllTickets.Rows[dgvAllTickets.CurrentRow.Index].Cells[7].Value.ToString();
+            cmbTicketAssignedTo.Text = dgvAllTickets.Rows[dgvAllTickets.CurrentRow.Index].Cells[9].Value.ToString();
+        }
+
+        private void btnSend_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
