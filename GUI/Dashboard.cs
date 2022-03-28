@@ -16,6 +16,7 @@ namespace GUI
         DBContext db = new DBContext();
         User loggedInUser;
         LoginForm loginForm;
+        string sortMethod = "All";
         public Dashboard(User loggedInUser, LoginForm loginForm)
         {
             InitializeComponent();
@@ -104,6 +105,8 @@ namespace GUI
                 ticketToEdit.AssignedTo = db.Users.SingleOrDefault(x => x.Username == cmbMyTicketAssignedTo.Text).Id;
                 db.SaveChanges();
                 MessageBox.Show("Ticket successfully updated.");
+                dgvMyTickets.DataSource = null;
+                dgvMyTickets.DataSource = BusinessLayer.GetMyTickets();
             }
             catch
             {
@@ -124,6 +127,21 @@ namespace GUI
                 ticketToEdit.AssignedTo = db.Users.SingleOrDefault(x => x.Username == cmbTicketAssignedTo.Text).Id;
                 db.SaveChanges();
                 MessageBox.Show("Ticket successfully updated.");
+                switch (sortMethod)
+                {
+                    case "All":
+                        dgvAllTickets.DataSource = null;
+                        dgvAllTickets.DataSource = BusinessLayer.GetAllTickets();
+                        break;
+                    case "Pending":
+                        dgvAllTickets.DataSource = null;
+                        dgvAllTickets.DataSource = BusinessLayer.GetStatusTickets("Pending");
+                        break;
+                    case "Completed":
+                        dgvAllTickets.DataSource = null;
+                        dgvAllTickets.DataSource = BusinessLayer.GetStatusTickets("Completed");
+                        break;
+                }
             } catch
             {
                 MessageBox.Show("Error updating ticket.");
@@ -134,18 +152,21 @@ namespace GUI
         {
             dgvAllTickets.DataSource = null;
             dgvAllTickets.DataSource = BusinessLayer.GetAllTickets();
+            sortMethod = "All";
         }
 
         private void btnShowPending_Click(object sender, EventArgs e)
         {
             dgvAllTickets.DataSource = null;
             dgvAllTickets.DataSource = BusinessLayer.GetStatusTickets("Pending");
+            sortMethod = "Pending";
         }
 
         private void btnShow_Click(object sender, EventArgs e)
         {
             dgvAllTickets.DataSource = null;
             dgvAllTickets.DataSource = BusinessLayer.GetStatusTickets("Completed");
+            sortMethod = "Completed";
         }
 
         private void dgvMyTickets_SelectionChanged(object sender, EventArgs e)
