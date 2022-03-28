@@ -39,11 +39,26 @@ namespace ClassLibrary
                         ticket.Type,
                         ticket.Status,
                         ticket.Priority,
-                        ticket.CreatedBy,
-                        ticket.AssignedTo,
-                        ticket.AcceptedBy);
+                        GetNameByID((int)ticket.CreatedBy),
+                        GetNameByID((int)ticket.AssignedTo),
+                        GetNameByID((int)ticket.AcceptedBy));
 
                 }
+            }
+
+            return ret;
+        }
+
+        public static string GetNameByID(int id)
+        {
+            string ret = "";
+
+            using (DBContext db = new DBContext())
+            {
+                if (id != 0)
+                    ret = db.Users.SingleOrDefault(x => x.Id == id).Username;
+                else
+                    ret = null;
             }
 
             return ret;
@@ -78,9 +93,9 @@ namespace ClassLibrary
                             ticket.Type,
                             ticket.Status,
                             ticket.Priority,
-                            ticket.CreatedBy,
-                            ticket.AssignedTo,
-                            ticket.AcceptedBy);
+                            GetNameByID(ticket.CreatedBy),
+                            GetNameByID(ticket.AssignedTo),
+                            GetNameByID(ticket.AcceptedBy));
                     }
                 }
             }

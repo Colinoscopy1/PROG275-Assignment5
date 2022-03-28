@@ -18,6 +18,15 @@ namespace UnitTests_
         }
 
         [TestMethod]
+        public void Test_GetNameById()
+        {
+            DBContext db = new DBContext();
+            BusinessLayer bl = new BusinessLayer();
+
+            Assert.AreEqual("Colin", bl.GetNameByID(8));
+        }
+
+        [TestMethod]
         public void Test_AddUser_And_RemoveUser()
         {
             User tmp = new User();

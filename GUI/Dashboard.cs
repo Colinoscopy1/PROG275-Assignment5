@@ -62,7 +62,7 @@ namespace GUI
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             this.Close();
-            loginForm.Show();
+            loginForm.Show();//Something Wrong Here
         }
 
         private void Dashboard_Load(object sender, EventArgs e)
