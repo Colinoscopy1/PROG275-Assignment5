@@ -90,6 +90,9 @@ namespace GUI
             dgvAllTickets.DataSource = BusinessLayer.GetAllTickets();
             dgvMyTickets.DataSource = BusinessLayer.GetMyTickets();
 
+            //populate dm list
+            lstDMs.DataSource = BusinessLayer.GetAllUsersToMessage();
+
         }
 
         private void btnUpdateMyTicket_Click(object sender, EventArgs e)
@@ -191,7 +194,20 @@ namespace GUI
 
         private void btnSend_Click(object sender, EventArgs e)
         {
+            try
+            {
+                User recipient = (User)lstDMs.SelectedItem;
+                BusinessLayer.SendMessage(recipient, txtMessageToSend.Text);
+            }
+            catch
+            {
+                MessageBox.Show("There was an error while sending the message.");
+            }
+        }
 
+        void RefreshDM()
+        {
+            lstMessages.DataSource = BusinessLayer.get
         }
     }
 }
