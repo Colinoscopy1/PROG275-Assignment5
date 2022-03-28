@@ -63,7 +63,7 @@ namespace GUI
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             this.Close();
-            loginForm.Show();//Something Wrong Here
+            //loginForm.Show();//Something Wrong Here
         }
 
         private void Dashboard_Load(object sender, EventArgs e)
@@ -215,9 +215,31 @@ namespace GUI
             lstMessages.ValueMember = "Content";
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void lstDMs_SelectedIndexChanged(object sender, EventArgs e)
         {
             RefreshDM();
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dgvMyTickets.DataSource = null;
+            dgvMyTickets.DataSource = BusinessLayer.GetMyTickets();
+
+            switch (sortMethod)
+            {
+                case "All":
+                    dgvAllTickets.DataSource = null;
+                    dgvAllTickets.DataSource = BusinessLayer.GetAllTickets();
+                    break;
+                case "Pending":
+                    dgvAllTickets.DataSource = null;
+                    dgvAllTickets.DataSource = BusinessLayer.GetStatusTickets("Pending");
+                    break;
+                case "Completed":
+                    dgvAllTickets.DataSource = null;
+                    dgvAllTickets.DataSource = BusinessLayer.GetStatusTickets("Completed");
+                    break;
+            }
         }
     }
 }

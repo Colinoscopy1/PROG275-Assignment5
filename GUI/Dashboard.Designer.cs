@@ -105,6 +105,7 @@ namespace GUI
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1074, 544);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabDashboard
             // 
@@ -295,6 +296,7 @@ namespace GUI
             this.lstDMs.Name = "lstDMs";
             this.lstDMs.Size = new System.Drawing.Size(179, 214);
             this.lstDMs.TabIndex = 2;
+            this.lstDMs.SelectedIndexChanged += new System.EventHandler(this.lstDMs_SelectedIndexChanged);
             // 
             // lstMessages
             // 
