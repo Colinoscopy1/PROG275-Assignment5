@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -260,6 +261,9 @@ namespace ClassLibrary
 
             using (DBContext db = new DBContext())
             {
+                db.Entry(recipient).State = EntityState.Unchanged;
+                db.Entry(LoggedInUser).State = EntityState.Unchanged;
+
                 Message msg = new Message();
                 msg.Content = message;
                 msg.Sender = LoggedInUser;
