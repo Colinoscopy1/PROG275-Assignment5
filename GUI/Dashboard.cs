@@ -150,7 +150,7 @@ namespace GUI
 
         private void dgvMyTickets_SelectionChanged(object sender, EventArgs e)
         {
-            txtMyTicketDescription.Text = dgvMyTickets.Rows[dgvMyTickets.CurrentRow.Index].Cells[8].Value.ToString();
+            txtMyTicketDescription.Text = dgvMyTickets.Rows[dgvMyTickets.CurrentRow.Index].Cells[3].Value.ToString();
             txtMyTicketNotes.Text = dgvMyTickets.Rows[dgvMyTickets.CurrentRow.Index].Cells[4].Value.ToString();
             cmbMyTicketType.Text = dgvMyTickets.Rows[dgvMyTickets.CurrentRow.Index].Cells[5].Value.ToString();
             cmbMyTicketStatus.Text = dgvMyTickets.Rows[dgvMyTickets.CurrentRow.Index].Cells[6].Value.ToString();
@@ -160,7 +160,7 @@ namespace GUI
 
         private void dgvAllTickets_SelectionChanged(object sender, EventArgs e)
         {
-            txtTicketDescription.Text = dgvAllTickets.Rows[dgvAllTickets.CurrentRow.Index].Cells[8].Value.ToString();
+            txtTicketDescription.Text = dgvAllTickets.Rows[dgvAllTickets.CurrentRow.Index].Cells[3].Value.ToString();
             txtTicketNotes.Text = dgvAllTickets.Rows[dgvAllTickets.CurrentRow.Index].Cells[4].Value.ToString();
             cmbTicketType.Text = dgvAllTickets.Rows[dgvAllTickets.CurrentRow.Index].Cells[5].Value.ToString();
             cmbTicketStatus.Text = dgvAllTickets.Rows[dgvAllTickets.CurrentRow.Index].Cells[6].Value.ToString();
